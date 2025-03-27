@@ -1,0 +1,3 @@
+samantha.greene@example.com
+marcus.lin@example.com
+aisha.rahman@example.com
