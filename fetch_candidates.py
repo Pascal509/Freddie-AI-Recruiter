@@ -1,6 +1,7 @@
 # Import necessary libraries
 import gspread
 from google.oauth2.service_account import Credentials
+from google.auth.transport.requests import Request
 
 # Google Sheets document ID
 SHEET_ID = "1TPntAcoFPZVCFp-4kYgnqcaWGn5BGeuadU0okc6yWvs"
@@ -21,6 +22,9 @@ def fetch_candidates(sheet_id=SHEET_ID):
             "credentials.json",
             scopes=["https://www.googleapis.com/auth/spreadsheets"]
         )
+
+        # Force refresh token
+        creds.refresh(Request()) 
 
         # Connect to Google Sheets
         client = gspread.authorize(creds)
